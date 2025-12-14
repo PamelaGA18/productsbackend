@@ -38,7 +38,7 @@ export const validateId = (req, res, next) => {
         const objectId = mongoose.Types.ObjectId.createFromHexString(cleanId);
 
         //Verificar que la compra fue exitosa
-        if (isObjectIdOrHexString.toString() !== cleanId.toLowerCase())
+        if (objectId.toString() !== cleanId.toLowerCase())
             return res.status(400)
                 .json({ message: ['Error al procesar el ID'] });
 
