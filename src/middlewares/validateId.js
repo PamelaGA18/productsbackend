@@ -17,6 +17,7 @@ function idMongoDbValidator(id) {
 export const validateId = (req, res, next) => {
     try {
         const { id } = req.params;
+        console.log(` [validateId] Validando ID: ${id} para ruta: ${req.path}`);
 
         //Validaciones básicas de vacío, longitud y hex
         const validateId = idMongoDbValidator(id);
@@ -67,9 +68,11 @@ export const validateId = (req, res, next) => {
             return res.status(400)
                 .json({ message: ['Error ID reservado'] });
 
+                console.log(` [validateId] ID VÁLIDO: ${cleanId}`);
         next();
 
     } catch (error) {
+        console.error(` [validateId] ERROR: ${error.message}`);
         return res.status(400)
             .json({ message: ['El ID no es ObjectId válido'] });
     }//Fin de catch

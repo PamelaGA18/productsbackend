@@ -23,8 +23,7 @@ import { uploadToCloudinary } from "../middlewares/uploadImage.js";
 import { isAdmin } from "../middlewares/isAdmin.js";
 
 //Importamos el middleware para ValidarID
-import { validateId } from '../middlewares/validateId.js';
-
+import { validateId } from "../middlewares/validateId.js";
 const router = Router();
 
 //Ruta para obtener todos los productos para la compra
