@@ -24,10 +24,13 @@ const app = express();
 
 app.use(cors({
     origin: [
-        process.env.BASE_URL_BACKEND,
-        process.env.BASE_URL_FRONTEND
+        process.env.BASE_URL_FRONTEND,
+        'http://localhost:5173',        
+        'http://localhost:3000'
     ],
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(morgan('dev'));

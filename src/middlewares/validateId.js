@@ -19,7 +19,7 @@ export const validateId = (req, res, next) => {
         const { id } = req.params;
 
         //Validaciones básicas de vacío, longitud y hex
-        const calidateId = idMongoDbValidator(id);
+        const validateId = idMongoDbValidator(id);
 
         if (!validateId)
             return res.status(400)
@@ -29,7 +29,7 @@ export const validateId = (req, res, next) => {
         const cleanId = id.trim();
 
         //Validar con mongoose
-        if (!mongoose.idValidObjectId(cleanId))
+        if (!mongoose.isValidObjectId(cleanId))
             return res.status(400)
                 .json({ message: ['Formato de ID no válido para MongoDB'] });
 

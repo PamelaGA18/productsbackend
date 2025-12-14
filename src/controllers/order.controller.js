@@ -64,6 +64,9 @@ export const createOrder = async (req, res) => {
 //Función para actualizar el status de una orden
 export const updateOrderStatus = async (req, res) => {
   try {
+    console.log(' Actualizando orden - ID:', req.params.id);
+    console.log(' Body recibido:', req.body);
+
     const { id } = req.params;
     const { status } = req.body;
 
@@ -98,6 +101,7 @@ export const updateOrderStatus = async (req, res) => {
 
     res.json(order);
   } catch (error) {
+    console.error(' Error en updateOrderStatus:', error);
     return res.status(400).json({
       message: ["Error al actualizar la orden"],
     });
