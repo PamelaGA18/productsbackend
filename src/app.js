@@ -13,8 +13,10 @@ console.log("Frontend: ", process.env.BASE_URL_FRONTEND);
 
 //Importamos las rutas para usuarios
 import authRoutes from './routes/auth.routes.js';
+
 //Importamos las rutas para productos
 import productRoutes from './routes/product.routes.js';
+
 //Importamos las rutas para las ordenes
 import orderRoutes from './routes/order.routes.js';
 
